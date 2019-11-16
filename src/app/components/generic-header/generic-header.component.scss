@@ -1,0 +1,32 @@
+.buttonMain {
+    border-radius: 0;
+    height: 75px;
+    width: 260px;
+    margin-right:10px;
+    font-size: 25px; 
+    background: rgba(14, 78, 43, 0.632);
+    color: white; 
+}
+
+
+.mat-toolbar{
+    padding-left: 20px;
+    background: rgb(198, 197, 197);
+    height: 75px; 
+}
+
+.homeButton{
+    border: 0;
+    background: rgba(14, 78, 43, 0.632);
+    height: 60px;
+    width: 60px;
+    margin-right: 45%;
+    mat-icon{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: block;
+        color: white;
+    }
+}

@@ -1,0 +1,60 @@
+<div class="content">
+
+ 
+ 
+ 
+    <h2>As minhas Linhas de Produção: </h2>
+
+    <button mat-fab (click)="addLinhaProducao()">
+        <mat-icon>add</mat-icon> 
+      </button>
+  
+
+    <div *ngIf= "active">
+       <mat-card class="contentInput">
+
+        <mat-form-field  [floatLabel]="'always'" >
+          <input matInput name="name" placeholder="Nome da linha de produção"  required>
+        </mat-form-field>
+  
+        <mat-form-field [floatLabel]="'always'">
+            <mat-label>Maquinas da linha</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-option *ngFor="let m of listaMaquinas" [value]="topping">{{m.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-button> Criar Linha </button>
+        </mat-card>
+
+    </div>  
+  <div class="linhaProducao" *ngFor="let linha of linhasProducao; let i = index">
+
+         <h3>{{linha.name}}</h3>
+
+         <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event, i)">
+            <div class="example-box" *ngFor="let maquina of linha.maquinas" cdkDrag>
+              {{maquina.name}}
+              <div *ngIf="maquina.name === 'Furadora'">
+              <img *cdkDragPreview src="../../../assets/maquinas/furadora.png" >
+              </div>
+
+              <!-- <div *ngIf="maquina.name === '1234'">
+                  <img *cdkDragPreview src="../../../assets/maquinas/furadora.png" >
+              </div>
+
+              <div *ngIf="maquina.name === 'Blablabla'">
+                  <img *cdkDragPreview src="../../../assets/maquinas/furadora.png" >
+             </div> -->
+            </div>
+          </div>
+
+  </div>
+
+
+
+
+
+ 
+
+</div>
