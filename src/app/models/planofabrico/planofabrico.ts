@@ -5,4 +5,8 @@ export class PlanoFabrico {
     name: string;
     desc: string;
     operacoes: Operacao[];
+
+    constructor(){
+        this.operacoes = [];
+    }
 }

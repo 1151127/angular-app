@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
-import { MatToolbarModule, MatIconModule, MatButtonModule, MatInputModule, MatOptionModule, MatSelectModule, MatCardModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatButtonModule, MatInputModule, MatOptionModule, MatSelectModule, MatCardModule, MatTableModule } from '@angular/material';
 import { GenericHeaderComponent } from './components/generic-header/generic-header.component';
 import { ComponentsModule } from './components/components.module';
 import { LinhasProducaoComponent } from './pages/linhas-producao/linhas-producao.component';
@@ -31,6 +31,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     ComponentsModule,
     DragDropModule,
+    MatTableModule,
     MatFormFieldModule,
     MatCardModule,
     MatOptionModule,

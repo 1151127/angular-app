@@ -4,5 +4,6 @@ export class Operacao {
     operacaoId: number;
     name: string;
     desc: string;
-    tiposMaquinas: TipoMaquina[];
+    operacaoTipoMaquina: [];
+    // tiposMaquinas: TipoMaquina[];
 }

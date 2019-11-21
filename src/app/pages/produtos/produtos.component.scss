@@ -1,0 +1,95 @@
+.content{
+    margin-left: 120px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+
+.contentInput{   
+    display: flex;
+    margin-top: 30px;
+    width: 800px;
+    height:250px;
+    background: rgb(196, 196, 196);
+ }
+
+
+ .grid1{
+     grid-column: 1;
+ }
+
+ .grid2{
+    grid-column: 2;
+}
+
+ 
+mat-form-field{
+    margin-left: 10px;
+    margin-right: 10px;
+     width: 90%;
+    input{
+        color: white;
+     }
+  }
+
+
+  .mat-cell{
+    padding: 20px 25px 20px 25px;
+    border:0;
+    color: black;
+  }
+
+  //Css Table
+//Borders Radius
+tr.mat-header-row  th:first-child
+{   
+   border-top-left-radius: 10px;
+}
+
+tr.mat-header-row th:last-child
+ { 
+  border-top-right-radius: 10px;
+ }
+
+tr:last-child td:first-child
+   {
+   border-bottom-left-radius: 10px;
+   }
+tr:last-child td:last-child 
+{ 
+  border-bottom-right-radius: 10px;
+ }
+
+  .tableGroup{
+    margin-top: 40px;
+    background: rgba(14, 78, 43, 0.632);
+    border-radius: 10px;
+    border-collapse: separate;
+     .mat-row:nth-child(odd){
+       background-color:rgba(14, 78, 43, 0.632);
+       &:hover{
+        background:goldenrod;
+       }
+       }
+
+      .mat-row:nth-child(even){
+        background-color:rgb(196, 196, 196);
+           &:hover{
+            background:goldenrod;
+           }
+        }
+  }
+
+  .mat-header-cell{
+    padding: 20px 25px 20px 25px;
+    background:gray;
+    color: white;
+    font-size: 15px;
+  }
+
+
+  span{
+    color: white;
+    size: 26px;
+  }

@@ -1,1 +1,127 @@
-<p>produtos works!</p>
+<div class="content">
+
+
+        <div class="grid1">
+                <h2> Os meus Produtos:</h2>  
+                
+                         <button mat-fab (click)="addProduto()">
+                          <mat-icon>add</mat-icon> 
+                        </button>
+                
+                        <div *ngIf= "activeP">
+                               <fieldset class="contentInput">
+                               <mat-form-field  [floatLabel]="'always'" >
+                                 <input matInput name="name" placeholder="Nome do produto" [(ngModel)] = "pObject.name"  required>
+                               </mat-form-field>
+
+                               <mat-form-field  [floatLabel]="'always'" >
+                                          <input matInput name="tipo" placeholder="Tipo Produto" [(ngModel)] = "pObject.tipoProduto"  required>
+                              </mat-form-field>
+                         
+                               <mat-form-field [floatLabel]="'always'">
+                                   <mat-label>Plano Fabrico</mat-label>
+                                   <mat-select  [(ngModel)] = "pObject.planoFabricoId">
+                                     <mat-option *ngFor="let pf of planosFabricos" [value]="pf.planoFabricoId">{{pf.name}}</mat-option>
+                                   </mat-select>
+                               </mat-form-field>
+                       
+                                 <button mat-button (click)="createProduto()"> Criar Produto</button>
+                               </fieldset>
+                           </div>  
+                
+
+                           <table  mat-table [dataSource]="produtos" class="tableGroup" >
+                  
+                              <ng-container matColumnDef="nomeP">
+                                      <th mat-header-cell *matHeaderCellDef> Nome </th>
+                                      <td mat-cell *matCellDef="let produtos"> 
+                                             <span> {{produtos.name}} </span>
+                                      </td>
+                               </ng-container>
+                
+                               <ng-container matColumnDef="tipoP">
+                                             <th mat-header-cell *matHeaderCellDef> Tipo Produto </th>
+                                             <td mat-cell *matCellDef="let produtos">
+                                                    <span> {{produtos.tipoProduto}}</span>      
+                                             </td>
+                               </ng-container>
+
+                               <ng-container matColumnDef="planoF">
+                                          <th mat-header-cell *matHeaderCellDef> PlanoFabrico </th>
+                                          <td mat-cell *matCellDef="let produtos">
+                                                 <span> {{produtos.planoFabricoId}}</span>      
+                                          </td>
+                            </ng-container>
+                
+                               <tr mat-header-row *matHeaderRowDef="displayedColumnsP"></tr>
+                               <tr mat-row  class="elementTable"  *matRowDef="let row; columns: displayedColumnsP;"></tr>
+                        </table>
+                 </div>
+                
+                 <div class="grid2">
+                
+                          <h2> Os  meus Planos de Fabrico:</h2>  
+                
+                          <button mat-fab (click)="addPlanoFabrico()">
+                           <mat-icon>add</mat-icon> 
+                          </button>
+                
+                          <div *ngIf= "activePF">
+                                   <fieldset class="contentInput">
+                                    <mat-form-field  [floatLabel]="'always'" >
+                                      <input matInput name="name" placeholder="Nome Plano Fabrico " [(ngModel)] = "pfObject.name"  required>
+                                    </mat-form-field>
+                
+                                    <mat-form-field  [floatLabel]="'always'" >
+                                        <input matInput name="desc" placeholder="Descrição" [(ngModel)]="pfObject.desc"  required>
+                                     </mat-form-field>
+                              
+                                    <mat-form-field [floatLabel]="'always'">
+                                        <mat-label> Selecione as operações</mat-label>
+                                        <mat-select  multiple  [(ngModel)] = "pfObject.operacoes">
+                                          <mat-option *ngFor="let op of operacoes" [value]="op">{{op.name}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                            
+                                      <button mat-button (click)="createPlanoFabrico()"> Criar Planos Fabricos</button>
+                                    </fieldset>
+                           </div>  
+                
+                
+                           <table  mat-table [dataSource]="planosFabricos" class="tableGroup" >
+                  
+                                 <ng-container matColumnDef="nomePF">
+                                         <th mat-header-cell *matHeaderCellDef> Nome </th>
+                                         <td mat-cell *matCellDef="let planosFabricos"> 
+                                                <span> {{planosFabricos.name}} </span>
+                                         </td>
+                                  </ng-container>
+                  
+                                  <ng-container matColumnDef="descPF">
+                                         <th mat-header-cell *matHeaderCellDef> Descrição </th>
+                                         <td mat-cell *matCellDef="let planosFabricos"> 
+                                                <span> {{planosFabricos.desc}}</span> 
+                                         </td>
+                                  </ng-container>
+                  
+                  
+                                  <ng-container matColumnDef="listOP">
+                                                <th mat-header-cell *matHeaderCellDef> Lista Operações </th>
+                                                <td mat-cell *matCellDef="let planosFabricos"> 
+                                                      <div *ngFor = "let op of planosFabricos.operacoes">
+                                                       <span> {{op.name}}</span>
+                                                      </div>
+                                                </td>
+                                  </ng-container>
+                  
+                                  <tr mat-header-row *matHeaderRowDef="displayedColumnsPF"></tr>
+                                  <tr mat-row  class="elementTable"  *matRowDef="let row; columns: displayedColumnsPF;"></tr>
+                           </table>
+                
+                 </div>
+
+
+
+
+
+</div>
