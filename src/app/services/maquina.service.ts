@@ -16,7 +16,6 @@ import { Maquina } from '../models/maquina/maquina';
 const urlHost = 'https://localhost:5001/api/Maquinas';
 const url = 'https://mdfapi.azurewebsites.net/api/Maquinas'
 
-const auxs = url;
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -33,15 +32,19 @@ export class MaquinaService {
   constructor(private httpClient: HttpClient) { }
 
   getAllMaquinas():  Observable<Maquina[]> {
-    return   this.httpClient.get<Maquina[]>(auxs);
+    return   this.httpClient.get<Maquina[]>(url);
   }
 
   getMaquinaById(id): Observable<Maquina> {
-    return this.httpClient.get<Maquina>(auxs + id);
+    return this.httpClient.get<Maquina>(url + '/' + id);
   }
 
   postMaquina (m: Maquina): Observable<Maquina> {
-    return this.httpClient.post<Maquina>(auxs, JSON.stringify(m), httpOptions);
+    return this.httpClient.post<Maquina>(url, JSON.stringify(m), httpOptions); 
   }
 
+  putMaquina (m: Maquina): Observable<Maquina> {
+    console.log("OUYE");
+    return  this.httpClient.put<Maquina>(url + '/' + JSON.stringify(m.maquinaId) , JSON.stringify(m), httpOptions);
+  }
 }

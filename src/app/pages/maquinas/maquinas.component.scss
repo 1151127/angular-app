@@ -91,3 +91,32 @@ tr:last-child td:last-child
     color: white;
     size: 26px;
   }
+
+  .buttonEdit {
+    background : rgba(14, 78, 43, 0.632);
+    mat-icon{
+      color: white;
+    }
+  }
+
+  .search1{
+    margin: 10px;
+    background: rgba(14, 78, 43, 0.632);
+
+    .mat-fab{ 
+      margin-left: 5px;
+      padding: 0;
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+      background: white;
+    
+    }
+   
+
+  }
+
+
+  :host ::ng-deep .mat-fab .mat-button-wrapper {
+    padding: 0px 0;
+    }

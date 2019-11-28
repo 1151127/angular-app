@@ -6,8 +6,6 @@ import { Operacao } from '../models/operacao/operacao';
 const urlHost = 'https://localhost:5001/api/Operacoes';
 const url = 'https://mdfapi.azurewebsites.net/api/Operacoes';
 
-const auxs = url;
-
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -20,14 +18,14 @@ export class OperacaoService {
   constructor(private httpClient: HttpClient) { }
 
   getAllOperacoesMaquinas():  Observable<Operacao[]> {
-    return   this.httpClient.get<Operacao[]>(auxs);
+    return   this.httpClient.get<Operacao[]>(url);
   }
 
   getOperacaoById(id): Observable<Operacao> {
-    return this.httpClient.get<Operacao>(auxs + id);
+    return this.httpClient.get<Operacao>(url + id);
   }
 
 postOperacao (op: Operacao): Observable<Operacao> {
-  return this.httpClient.post<Operacao>(auxs, JSON.stringify(op), httpOptions)
+  return this.httpClient.post<Operacao>(url, JSON.stringify(op), httpOptions)
 }
 }

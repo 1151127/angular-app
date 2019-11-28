@@ -5,9 +5,7 @@ import { LinhaProducao } from '../models/linhaproducao/linhaproducao';
 
 
 const urlHost = 'https://localhost:5001/api/LinhasProducoes';
-const url = 'https://mdfapi.azurewebsites.net/api/LinhasProducoes';
-
-const auxs = url;
+const url = 'https://mdfapi.azurewebsites.net/api/LinhasProducoes'
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,15 +20,15 @@ export class LinhaProducaoService {
   constructor(private httpClient: HttpClient) { }
 
   getAllLinhasProducoes(): Observable<LinhaProducao[]> {
-    return   this.httpClient.get<LinhaProducao[]>(auxs);
+    return   this.httpClient.get<LinhaProducao[]>(url);
   }
 
   getLinhaProducaoById(id): Observable<LinhaProducao> {
-    return this.httpClient.get<LinhaProducao>(auxs + id);
+    return this.httpClient.get<LinhaProducao>(url + id);
   }
 
   postLinhaProducao (lp: LinhaProducao): Observable<LinhaProducao> {
-    return this.httpClient.post<LinhaProducao>(auxs, JSON.stringify(lp), httpOptions);
+    return this.httpClient.post<LinhaProducao>(url, JSON.stringify(lp), httpOptions);
   }
 
 }

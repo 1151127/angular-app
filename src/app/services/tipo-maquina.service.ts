@@ -7,8 +7,6 @@ const urlHost = 'https://localhost:5001/api/TiposMaquinas/simplificado';
 const url = 'https://mdfapi.azurewebsites.net/api/TiposMaquinas/simplificado'
 const urlPost ='https://localhost:5001/api/TiposMaquinas';
 
-const auxs = url;
-
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -22,16 +20,22 @@ export class TipoMaquinaService {
   constructor(private httpClient: HttpClient) { }
 
   getAllTiposMaquinas():  Observable<TipoMaquina[]> {
-    return   this.httpClient.get<TipoMaquina[]>(auxs);
+    return   this.httpClient.get<TipoMaquina[]>(url);
   }
 
   getTipoMaquinaById(id): Observable<TipoMaquina> {
-    return this.httpClient.get<TipoMaquina>(auxs + id);
+    return this.httpClient.get<TipoMaquina>(url + '/' + id);
   }
 
   postTipoMaquina (tm: TipoMaquina): Observable<TipoMaquina> {
-    return this.httpClient.post<TipoMaquina>(auxs, JSON.stringify(tm), httpOptions);
+    return this.httpClient.post<TipoMaquina>(url, JSON.stringify(tm), httpOptions);
   }
+
+  putTipoMaquina (tm: TipoMaquina): Observable<TipoMaquina> {
+    console.log("service: ", tm);
+    return this.httpClient.put<TipoMaquina>(url + '/' + JSON.stringify(tm.tipoMaquinaId) , JSON.stringify(tm), httpOptions);
+  }
+
 
 
 }

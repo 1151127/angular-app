@@ -11,7 +11,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const auxs = url;
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +22,15 @@ export class PlanoFabricoService {
 
   
   getAllPlanosFabricos():  Observable<PlanoFabrico[]> {
-    return   this.httpClient.get<PlanoFabrico[]>(auxs);
+    return   this.httpClient.get<PlanoFabrico[]>(url);
   }
 
   getPlanoFabricoById(id): Observable<PlanoFabrico> {
-    return this.httpClient.get<PlanoFabrico>(auxs + id);
+    return this.httpClient.get<PlanoFabrico>(url + id);
   }
 
   postPlanoFabrico (pf: PlanoFabrico): Observable<PlanoFabrico> {
-    return this.httpClient.post<PlanoFabrico>(auxs, JSON.stringify(pf), httpOptions);
+    return this.httpClient.post<PlanoFabrico>(url, JSON.stringify(pf), httpOptions);
   }
 
 }

@@ -1,9 +1,12 @@
-import { TipoMaquina } from "../tipomaquina/tipomaquina";
+import { OperacaoTipoMaquina } from '../operacaotipomaquina/operacaotipomaquina';
 
 export class Operacao {
     operacaoId: number;
     name: string;
     desc: string;
-    operacaoTipoMaquina: [];
-    // tiposMaquinas: TipoMaquina[];
+    operacoesTiposMaquinas: OperacaoTipoMaquina[];
+
+    constructor(){
+        this.operacoesTiposMaquinas = [];
+}
 }

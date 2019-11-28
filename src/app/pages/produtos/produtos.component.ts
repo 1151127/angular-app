@@ -32,19 +32,35 @@ export class ProdutosComponent implements OnInit {
   getProdutos(){
     this.produtoService.getAllProdutos().subscribe((plist) => {
       this.produtos = plist;
-      console.log(this.produtos);
+      this.produtos.forEach((p) => {
+        console.log("planos", this.planosFabricos);
+        this.planosFabricos.forEach((pf) => {
+          if (pf.planoFabricoId === p.planoFabricoId) {
+            p['pfName'] = pf.name;
+          }
+        });
+      });
+      // console.log(this.produtos);
     });
   }
 
   getPlanosFabricos(){
     this.planoFabricoService.getAllPlanosFabricos().subscribe((pflist) => {
       this.planosFabricos = pflist;
-      console.log(this.planosFabricos);
+      this.produtos.forEach((p) => {
+        console.log("planos", this.planosFabricos);
+        this.planosFabricos.forEach((pf) => {
+          if (pf.planoFabricoId === p.planoFabricoId) {
+            p['pfName'] = pf.name;
+          }
+        });
+      });
+      // console.log(this.planosFabricos);
     });
   }
 
   addProduto() {
-    this.activeP = true;
+    this.activeP = !this.activeP;
   }
 
   createProduto() {
@@ -61,7 +77,7 @@ export class ProdutosComponent implements OnInit {
       this.operacoes = oplist;
       console.log(this.planosFabricos);
     });
-    this.activePF = true;
+    this.activePF = !this.activePF;
   }
 
   createPlanoFabrico() {

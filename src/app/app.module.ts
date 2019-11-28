@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { MatToolbarModule, MatIconModule, MatButtonModule, MatInputModule, MatOptionModule, MatSelectModule, MatCardModule, MatTableModule } from '@angular/material';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import { GenericHeaderComponent } from './components/generic-header/generic-header.component';
 import { ComponentsModule } from './components/components.module';
 import { LinhasProducaoComponent } from './pages/linhas-producao/linhas-producao.component';
@@ -15,6 +16,9 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { HttpClientModule } from '@angular/common/http';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
+import { ShowDataComponent } from './components/show-data/show-data.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     ComponentsModule,
     DragDropModule,
+    MatDialogModule,
     MatTableModule,
     MatFormFieldModule,
     MatCardModule,
@@ -44,7 +49,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  entryComponents: [
+     MyDialogComponent,
+     ShowDataComponent,
+  ],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

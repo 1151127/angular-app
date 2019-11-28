@@ -7,8 +7,6 @@ import { Produto } from '../models/produto/produto';
 const urlHost = 'https://localhost:5001/api/Produto';
 const url = 'https://mdpapi.azurewebsites.net/api/Produto'
 
-const auxs = url;
-
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -23,15 +21,15 @@ export class ProdutoService {
 
 
   getAllProdutos():  Observable<Produto[]> {
-    return   this.httpClient.get<Produto[]>(auxs);
+    return   this.httpClient.get<Produto[]>(url);
   }
 
   getProdutoById(id): Observable<Produto> {
-    return this.httpClient.get<Produto>(auxs + id);
+    return this.httpClient.get<Produto>(url + id);
   }
 
   postProduto (p: Produto): Observable<Produto> {
-    return this.httpClient.post<Produto>(auxs, JSON.stringify(p), httpOptions);
+    return this.httpClient.post<Produto>(url, JSON.stringify(p), httpOptions);
   }
 
 
