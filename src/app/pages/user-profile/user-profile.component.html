@@ -1,0 +1,77 @@
+<div class="content">
+
+       <div *ngIf = "clientState == 2">
+
+        <div class = "finder">
+        <mat-form-field [floatLabel]="'always'" >
+            <input matInput class= "searchInp" placeholder="Nome de utilizador" [(ngModel)]="finder" required>
+         </mat-form-field>
+        
+         <button  mat-fab style = "color: black; background: white;" (click) = "find()">
+            <mat-icon>search</mat-icon>
+        </button>
+     
+        <button style = "color: black; background: white;" *ngIf = "cancelFind" mat-fab (click) = "cancel()">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+
+        <mat-card class = "multipleCard" *ngFor = "let user of userList; let i = index" > 
+            <h2> User {{i+1}} </h2>
+            <div class="containerImg"> 
+            <img src="../../../assets/logo/avatar.jpg">   
+           </div>  
+           
+           <mat-form-field [floatLabel]="'always'" >
+                   <input matInput   name="nome" placeholder="Nome" [(ngModel)]="user.nome" required>
+            </mat-form-field>
+           
+            <mat-form-field [floatLabel]="'always'" >
+                <input matInput type="password"   name="email" placeholder="Email" [(ngModel)]="user.email" [disabled]= "true" required>
+            </mat-form-field>
+
+           <mat-form-field [floatLabel]="'always'"  >
+               <input matInput type="password" name="morada" placeholder="Morada" [(ngModel)]="user.morada" required>
+           </mat-form-field>
+           
+           <div class="buttonCamp2">
+           <button mat-raised-button   (click)="save(user)">Save</button>
+           </div>
+           </mat-card>
+
+             
+
+       </div>
+      
+       <div *ngIf = "clientState == 1">
+        <mat-icon class="iconR2">settings</mat-icon>
+
+        <mat-card class = "matCardUser">  
+            <h2>My User</h2>
+            <div class="containerImg"> 
+            <img src="../../../assets/logo/avatar.jpg">   
+           </div>  
+           
+           <mat-form-field [floatLabel]="'always'"   *ngIf = "myUser != null" >
+                   <input matInput name="nome" placeholder="Nome" [(ngModel)]="myUser.nome" required>
+            </mat-form-field>
+           
+            <mat-form-field [floatLabel]="'always'"  *ngIf = "myUser != null" >
+                <input matInput   name="email" placeholder="Email" [(ngModel)]="myUser.email" [disabled]= "true" required>
+          </mat-form-field>
+
+           <mat-form-field [floatLabel]="'always'"   *ngIf = "myUser != null"  >
+               <input matInput   name="morada" placeholder="Morada" [(ngModel)]="myUser.morada" required>
+           </mat-form-field>
+           
+           <div class="buttonCamp">
+           <button mat-raised-button  (click)="save()">Save</button>
+           </div>
+           </mat-card>
+
+           <mat-icon class="iconR">settings</mat-icon>
+
+       </div>
+
+
+</div>

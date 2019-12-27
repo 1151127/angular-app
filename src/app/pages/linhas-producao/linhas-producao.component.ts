@@ -54,7 +54,7 @@ export class LinhasProducaoComponent implements OnInit {
     this.maquinaService.getAllMaquinas().subscribe((mlist) => {
       this.listaMaquinas = mlist;
     });
-    this.active = true;
+    this.active = !this.active;
   }
 
 

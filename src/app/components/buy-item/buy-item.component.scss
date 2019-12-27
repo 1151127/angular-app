@@ -1,0 +1,34 @@
+
+
+button{
+    color: black;
+    background: white;
+    position: relative;
+    float: right;
+    margin-right: 15px;
+}
+
+.quantidade{
+
+    h2{
+       display: inline;
+       margin-right: 15px;
+     }
+     input{
+         color : white;
+         font-size: 25px;
+         background : transparent;
+         border: 0;
+         width: 80px;
+     }
+}
+
+
+:focus{
+    outline-width: 0;
+}
+
+img{
+    border: solid 3px;
+    border-color: white;
+}

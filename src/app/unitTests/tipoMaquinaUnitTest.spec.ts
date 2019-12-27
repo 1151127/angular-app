@@ -18,7 +18,7 @@ describe ('TipoMauqinaService (with spies)', () => {
     });
   
     it('should return more than 1 (HttpClient called once)', () => {
-      const mock: TipoMaquina[] = [{ tipoMaquinaId: 1, name: 'A',desc: 'A', listOperacoes: []}];
+      const mock: TipoMaquina[] = [{ tipoMaquinaId: 1, name: 'A',desc: 'A', operacoesTiposMaquinas: []}];
 
       httpClientSpy.get.and.returnValue(asyncData(mock));
   
@@ -30,7 +30,7 @@ describe ('TipoMauqinaService (with spies)', () => {
     });
 
     it('get by id ', () => {
-        const mock: TipoMaquina = { tipoMaquinaId: 1, name: 'A',desc: 'A', listOperacoes: [] };
+        const mock: TipoMaquina = { tipoMaquinaId: 1, name: 'A',desc: 'A', operacoesTiposMaquinas: [] };
           
         httpClientSpy.get.and.returnValue(asyncData(mock));
     

@@ -1,0 +1,89 @@
+mat-card{ 
+    background: rgba(14, 78, 43, 0.632);
+    margin-left: 37%;
+    margin-top: 150px;
+    width: 400px; 
+    height: 600px;
+    border: solid 7px;
+    border-color: white;
+
+    img{
+        width: 250px;
+        height: 300px;
+        margin-left: 70px;
+    }
+}
+
+
+
+.containerImg{
+    background: white;
+    margin-bottom: 10px;
+}
+
+
+.buttonCamp{ 
+    position: relative; 
+    top: 60px;
+    left: 195px;
+
+   button{
+    &:nth-child(1){
+        background:  rgba(14, 78, 43, 0.632);
+       }
+       &:nth-child(2){
+        margin-left: 10px;
+        background:  rgba(14, 78, 43, 0.632);
+       }
+    }
+}
+
+ 
+mat-form-field{
+    color: black;
+    margin-left: 10px;
+    margin-top: 8px;
+    margin-right: 10px;
+     width: 90%;
+    input{
+        color: white;
+     }
+  }
+
+
+  .cotain{
+    position: absolute;
+    margin-top:0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://wallpaperplay.com/walls/full/f/0/0/91299.jpg');
+
+    .welcomeHome{ 
+        margin-left: 25%;
+        margin-top: 120px;
+        color: white;
+        font-size: 60px;
+    }
+
+    mat-icon{
+        margin-top: 80px;
+        margin-left: 1200px;
+        width: 250px;
+        height:250px;
+        font-size: 250px;
+        color:rgba(204, 202, 202, 0.632);
+        transform-origin: center center;
+        animation: rotate 5s infinite;
+
+    }
+}
+
+
+@keyframes rotate {
+    from {
+         transform: rotate(0deg); 
+        }
+    to {
+        transform: rotate(360deg);
+     }
+}

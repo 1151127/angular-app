@@ -10,7 +10,7 @@ import { OperacaoService } from 'src/app/services/operacao.service';
 export class OperacoesComponent implements OnInit {
   operacoes: Operacao[] = [];
   opObject = new Operacao();
-  displayedColumnsO: string[] = ['nomeOP', 'descOP'];
+  displayedColumnsO: string[] = ['nomeOP', 'descOP', 'duraOP'];
   activeO: boolean;
 
   constructor(private operacaoService: OperacaoService) { }
@@ -27,7 +27,7 @@ export class OperacoesComponent implements OnInit {
   }
 
   addOperacao() {
-    this.activeO = true;
+    this.activeO = !this.activeO;
   }
 
   createOperacao() {

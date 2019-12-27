@@ -17,6 +17,18 @@
                                <mat-form-field  [floatLabel]="'always'" >
                                           <input matInput name="tipo" placeholder="Tipo Produto" [(ngModel)] = "pObject.tipoProduto"  required>
                               </mat-form-field>
+
+                              <mat-form-field [floatLabel]="'always'">
+                                   <mat-label>Categoria</mat-label>
+                                   <mat-select  [(ngModel)] = "pObject.categoria">
+                                     <mat-option *ngFor="let cat of Categorias" [value]="cat.name">{{cat.name}}</mat-option>
+                                   </mat-select>
+                               </mat-form-field>
+
+                               <mat-form-field  [floatLabel]="'always'" >
+                                   <input matInput name="preco"  type="number" min = 0 placeholder="Preço" [(ngModel)] = "pObject.preco"  required>
+                              </mat-form-field>
+
                          
                                <mat-form-field [floatLabel]="'always'">
                                    <mat-label>Plano Fabrico</mat-label>
@@ -44,6 +56,20 @@
                                              <td mat-cell *matCellDef="let produtos">
                                                     <span> {{produtos.tipoProduto}}</span>      
                                              </td>
+                               </ng-container>
+
+                               <ng-container matColumnDef="categ">
+                                   <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                                   <td mat-cell *matCellDef="let produtos">
+                                          <span> {{produtos.categoria}}</span>      
+                                   </td>
+                               </ng-container>
+
+                               <ng-container matColumnDef="preco">
+                                   <th mat-header-cell *matHeaderCellDef> Preço </th>
+                                   <td mat-cell *matCellDef="let produtos">
+                                          <span> {{produtos.preco}}</span>      
+                                   </td>
                                </ng-container>
 
                                <ng-container matColumnDef="planoF">
@@ -83,7 +109,7 @@
                                         </mat-select>
                                     </mat-form-field>
                             
-                                      <button mat-button (click)="createPlanoFabrico()"> Criar Planos Fabricos</button>
+                                      <button mat-button (click)="createPlanoFabrico()"> Criar Plano de Fabrico</button>
                                     </fieldset>
                            </div>  
                 
@@ -91,7 +117,7 @@
                            <table  mat-table [dataSource]="planosFabricos" class="tableGroup" >
                   
                                  <ng-container matColumnDef="nomePF">
-                                         <th mat-header-cell *matHeaderCellDef> Nome </th>
+                                         <th mat-header-cell *matHeaderCellDef> Nome </th> 
                                          <td mat-cell *matCellDef="let planosFabricos"> 
                                                 <span> {{planosFabricos.name}} </span>
                                          </td>

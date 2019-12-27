@@ -1,0 +1,107 @@
+ .content{
+    width: 100%;
+    min-height: 100%;
+    padding: 40px;
+    background : rgb(42, 41, 41);
+ }
+ 
+ .mat-fab{
+   margin-left: 20px;
+   color: black;
+  background: rgb(255, 255, 255);
+}
+
+
+   //Css Table
+//Borders Radius
+tr.mat-header-row  th:first-child
+{   
+   border-top-left-radius: 10px;
+}
+
+tr.mat-header-row th:last-child
+ { 
+  border-top-right-radius: 10px;
+ }
+
+tr:last-child td:first-child
+   {
+   border-bottom-left-radius: 10px;
+   }
+tr:last-child td:last-child 
+{ 
+  border-bottom-right-radius: 10px;
+ }
+
+  .tableGroup{
+    margin-top: 40px;
+    background: rgba(14, 78, 43, 0.632);
+    border-radius: 10px;
+    border-collapse: separate;
+     .mat-row:nth-child(odd){
+       background-color:rgba(14, 78, 43, 0.632);
+       &:hover{
+        background:goldenrod;
+       }
+       }
+
+      .mat-row:nth-child(even){
+        background-color:rgb(196, 196, 196);
+           &:hover{
+            background:goldenrod;
+           }
+        }
+  }
+
+  .mat-header-cell{
+    padding: 20px 25px 20px 25px;
+    background:gray;
+    color: white;
+    font-size: 15px;
+  }
+
+
+  .quantidadeInput{
+    text-align: center;
+    background: transparent;
+    width: 80px;
+    border: 0;
+    color: white;
+  }
+
+
+  .dataInput{
+    margin-left: 15px;
+    margin-right: 15px;
+    background: transparent;
+    border: 0;
+    color: white;
+  }
+
+.buttonEdit{
+  margin-right: 10px;
+}
+
+
+h2{
+  color: white;
+}
+
+
+h3{
+  color: rgb(216, 134, 12);
+  text-align: center;
+}
+
+
+h5{
+  text-align: center;
+  font-weight:normal;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+
+.searchInp{
+  color: white;
+}

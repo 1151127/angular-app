@@ -1,0 +1,27 @@
+
+
+<div class= "content">
+
+    <h2>Os nossos Produtos</h2>
+  
+    <div class = "contentCard">
+         
+
+      <mat-card *ngFor ="let produto of produtos">
+          
+          <img src="../assets/talheres/{{produto.categoria}}.png">
+
+          <div class = "cardDetails">
+                <h3>{{produto.name}}</h3>
+
+                <h5> PREÇO -  {{produto.preco}}€ </h5>
+
+                <button mat-raised-button (click) ="encomendaProduto(produto)"> Comprar </button> 
+          </div>
+
+      </mat-card>
+
+     </div>
+</div>
+
+

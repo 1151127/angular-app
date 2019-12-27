@@ -4,6 +4,8 @@ import { MaquinasComponent } from './maquinas.component';
 import { MatFormFieldModule, MatIconModule, MatButtonModule, MatInputModule, MatOptionModule, MatSelectModule, MatCardModule, MatTableModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('MaquinasComponent', () => {
   let component: MaquinasComponent;
@@ -12,7 +14,7 @@ describe('MaquinasComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MaquinasComponent ],
-      imports: [ MatIconModule , MatTableModule , HttpClientModule, FormsModule , MatFormFieldModule , MatSelectModule , MatInputModule ]
+      imports: [ BrowserAnimationsModule,MatIconModule ,MatDialogModule, MatTableModule , HttpClientModule, FormsModule , MatFormFieldModule , MatSelectModule , MatInputModule ]
     })
     .compileComponents();
   }));

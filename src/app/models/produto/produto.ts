@@ -5,4 +5,5 @@ export class Produto {
     name: string;
     tipoProduto: string;
     planoFabricoId: number;
+    categoria: string;
 }

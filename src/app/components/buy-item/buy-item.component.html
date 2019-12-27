@@ -1,0 +1,16 @@
+<div class = "content">
+
+   <img src = "../assets/talheres/{{data.prod.categoria}}.png">
+
+      <h2> Produto:  {{data.prod.name}}</h2>
+      <div class = "quantidade">
+      <h2> Quantidade: </h2> <input type = "number" value = 1 min= 1 [(ngModel)]="encomenda.quantidade">
+      </div>
+
+       <h2> Preço:     {{data.prod.preco* encomenda.quantidade}}   € </h2>
+      
+       <button mat-raised-button (click)="encomendar()"> Confirmar</button>
+       <button mat-raised-button (click)="close()"> Cancel</button>
+
+
+</div> 

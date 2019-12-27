@@ -1,0 +1,78 @@
+<div class="content">
+
+    <h2> {{clientState === 2 ? "Gerir Encomendas" : "As minhas Encomendas"}} </h2>
+
+    <mat-form-field [floatLabel]="'always'" >
+       <input matInput class= "searchInp" placeholder="Track Number" [(ngModel)]="finder" required>
+    </mat-form-field>
+   
+    <button mat-fab (click) = "find()">
+       <mat-icon>search</mat-icon>
+   </button>
+
+   <button *ngIf = "cancelFind" mat-fab (click) = "cancel()">
+       <mat-icon>clear</mat-icon>
+   </button>
+
+
+    <table mat-table *ngIf = " minhasEncomendas != null" [dataSource]="minhasEncomendas" class="tableGroup">
+
+        <ng-container matColumnDef="id">
+               <th mat-header-cell *matHeaderCellDef> Track Number </th>
+               <td mat-cell *matCellDef="let minhaEncomenda">
+                     <h5>{{minhaEncomenda._id}}</h5> 
+               </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantidade">
+            <th mat-header-cell *matHeaderCellDef> Quantidade</th>
+            <td mat-cell *matCellDef="let minhaEncomenda">
+                   <input mat-input *ngIf ="clientState === 2"  class = "quantidadeInput"  [(ngModel)] = "minhaEncomenda.quantidade">
+                   <h5 *ngIf ="clientState === 1" > {{minhaEncomenda.quantidade}} </h5>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="dataC">
+            <th mat-header-cell *matHeaderCellDef> Data do Pedido</th>
+            <td mat-cell *matCellDef="let minhaEncomenda">
+                   <!-- <input mat-input class = "textInput" [(ngModel)] = "element._id"> -->
+                   <h5> {{minhaEncomenda.dataCriacaoEncomenda}} </h5>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="dataE">
+            <th mat-header-cell *matHeaderCellDef> Data do Entrega</th>
+            <td mat-cell *matCellDef="let minhaEncomenda">
+                   <input *ngIf ="clientState === 2"  type ="datetime-local " class = "dataInput" [(ngModel)] = "minhaEncomenda.dataEntregaEncomenda">
+                   <h5 *ngIf ="clientState === 1" > {{minhaEncomenda.dataEntregaEncomenda}} </h5>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="preco">
+            <th mat-header-cell *matHeaderCellDef> Preço</th>
+            <td mat-cell *matCellDef="let minhaEncomenda">
+                   <h3> {{ minhaEncomenda.precoTotal != null ? minhaEncomenda.precoTotal + '€' : 'Free'}} </h3>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="save">
+               <th mat-header-cell *matHeaderCellDef> </th>
+               <td mat-cell *matCellDef="let element">
+                      <button *ngIf = "clientState === 2" mat-raised-button class="buttonEdit" (click)="alterarEncomenda(element)">
+                             <mat-icon  >save</mat-icon>
+                      </button>
+                      <button *ngIf = "clientState === 2" mat-raised-button class="buttonEdit" (click)="cancelarEncomenda(element)">
+                        <mat-icon  >remove_shopping_cart</mat-icon>
+                     </button>
+               </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsE"></tr>
+        <tr mat-row class="elementTable" *matRowDef="let row; columns: displayedColumnsE;"></tr>
+ </table>
+ 
+
+</div>

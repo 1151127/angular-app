@@ -19,21 +19,49 @@ export class ProdutosComponent implements OnInit {
   activePF: boolean;
   pObject = new Produto();
   pfObject = new PlanoFabrico();
-  displayedColumnsP: string[] = ['nomeP', 'tipoP', 'planoF'];
+  displayedColumnsP: string[] = ['nomeP', 'tipoP', 'categ', 'preco', 'planoF'];
   displayedColumnsPF: string[] = ['nomePF', 'descPF', 'listOP'];
 
   constructor(private produtoService: ProdutoService, private planoFabricoService: PlanoFabricoService, private operacaoService: OperacaoService) { }
+
+  Categorias = [
+    {
+      name: 'Garfo',
+    },
+    {
+      name: 'Garfo_de_Peixe',
+    },
+    {
+      name: 'Faca',
+    },
+    {
+      name: 'Faca_de_Serra',
+    },
+    {
+      name: 'Faca_de_Peixe',
+    },
+    {
+      name: 'Colher_de_Sopa',
+    },
+    {
+      name: 'Colher_de_Sobremesa'
+    },
+    {
+      name: 'Colher_de_Pau',
+    }
+  ];
+
 
   ngOnInit() {
     this.getProdutos();
     this.getPlanosFabricos();
   }
 
-  getProdutos(){
+  getProdutos() {
     this.produtoService.getAllProdutos().subscribe((plist) => {
       this.produtos = plist;
       this.produtos.forEach((p) => {
-        console.log("planos", this.planosFabricos);
+        console.log('planos', this.planosFabricos);
         this.planosFabricos.forEach((pf) => {
           if (pf.planoFabricoId === p.planoFabricoId) {
             p['pfName'] = pf.name;
@@ -44,11 +72,11 @@ export class ProdutosComponent implements OnInit {
     });
   }
 
-  getPlanosFabricos(){
+  getPlanosFabricos() {
     this.planoFabricoService.getAllPlanosFabricos().subscribe((pflist) => {
       this.planosFabricos = pflist;
       this.produtos.forEach((p) => {
-        console.log("planos", this.planosFabricos);
+        console.log('planos', this.planosFabricos);
         this.planosFabricos.forEach((pf) => {
           if (pf.planoFabricoId === p.planoFabricoId) {
             p['pfName'] = pf.name;

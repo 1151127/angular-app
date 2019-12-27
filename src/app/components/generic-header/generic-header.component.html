@@ -1,11 +1,16 @@
-<mat-toolbar > 
- <!--center bar -->
+<mat-toolbar>
+    <!--center bar -->
     <button mat-fab class="homeButton" routerLink="/home">
         <mat-icon> home </mat-icon>
     </button>
-<!-- nav buttons -->
-    <button mat-button class ="buttonMain" routerLink="/linhas-producao"> Linhas de Produção </button>
-    <button mat-button class ="buttonMain" routerLink="/maquinas"> Maquinas </button>
-    <button mat-button class ="buttonMain" routerLink="/operacoes"> Operações </button>
-    <button mat-button class ="buttonMain" routerLink="/produtos"> Produtos </button>    
+    <button mat-fab class="homeButton" routerLink="/user-profile">
+        <mat-icon> person </mat-icon>
+    </button>
+    <!-- nav buttons -->
+    <button mat-button class="buttonMain" routerLink="/encomendas-list"> Encomendas</button>
+    <button mat-button class="buttonMain" routerLink="/encomendas"> Store</button>
+    <button mat-button class="buttonMain" routerLink="/linhas-producao"> Linhas de Produção </button>
+    <button mat-button class="buttonMain" routerLink="/maquinas"> Maquinas </button>
+    <button mat-button class="buttonMain" routerLink="/operacoes"> Operações </button>
+    <button mat-button class="buttonMain" routerLink="/produtos"> Produtos </button>
 </mat-toolbar>

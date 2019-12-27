@@ -1,0 +1,37 @@
+<div class="cotain">
+
+        <!-- <div class="containerImg">
+                <img src="../../../assets/logo/MyOwnCutlery.png">
+            </div> -->
+
+    <mat-card>
+ 
+        <!-- [(ngModel)]="User.name" -->
+        <mat-form-field [floatLabel]="'always'" >
+            <input matInput name="nome" placeholder="Introduza o seu nome" [(ngModel)] = "uObject.nome"required>
+        </mat-form-field>
+
+
+        <!-- [(ngModel)]="User.morada" -->
+        <mat-form-field [floatLabel]="'always'" >
+            <input matInput name="morada" placeholder="Introduza a sua morada" [(ngModel)] = "uObject.morada" required>
+        </mat-form-field>
+
+        <!-- [(ngModel)]="User.mail" -->
+        <mat-form-field [floatLabel]="'always'" >
+            <input matInput name="email" placeholder="Introduza o seu mail"  [(ngModel)] = "uObject.email" required>
+        </mat-form-field>
+
+        <!-- [(ngModel)]="User.password"  -->
+        <mat-form-field [floatLabel]="'always'" >
+            <input matInput type = "password" name="pass" placeholder="Introduza o seu password"  [(ngModel)] = "uObject.pass"required>
+        </mat-form-field>
+
+        <div class="buttonCamp">
+            <button mat-raised-button routerLink="/login">Cancelar </button>
+            <button mat-raised-button  (click) = "registarUtilizador()">Confirmar </button>
+        </div>
+    </mat-card>
+
+
+</div>

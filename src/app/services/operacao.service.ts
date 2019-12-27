@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Operacao } from '../models/operacao/operacao';
 
-const urlHost = 'https://localhost:5001/api/Operacoes';
-const url = 'https://mdfapi.azurewebsites.net/api/Operacoes';
+const url = 'https://localhost:5001/api/Operacoes';
+const urlHost = 'https://mdfapi.azurewebsites.net/api/Operacoes';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -18,14 +18,14 @@ export class OperacaoService {
   constructor(private httpClient: HttpClient) { }
 
   getAllOperacoesMaquinas():  Observable<Operacao[]> {
-    return   this.httpClient.get<Operacao[]>(url);
+    return   this.httpClient.get<Operacao[]>(urlHost);
   }
 
   getOperacaoById(id): Observable<Operacao> {
-    return this.httpClient.get<Operacao>(url + id);
+    return this.httpClient.get<Operacao>(urlHost + id);
   }
 
 postOperacao (op: Operacao): Observable<Operacao> {
-  return this.httpClient.post<Operacao>(url, JSON.stringify(op), httpOptions)
+  return this.httpClient.post<Operacao>(urlHost, JSON.stringify(op), httpOptions)
 }
 }

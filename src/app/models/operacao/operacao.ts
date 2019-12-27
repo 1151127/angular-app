@@ -4,6 +4,7 @@ export class Operacao {
     operacaoId: number;
     name: string;
     desc: string;
+    duracao: string;
     operacoesTiposMaquinas: OperacaoTipoMaquina[];
 
     constructor(){

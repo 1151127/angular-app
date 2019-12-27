@@ -4,8 +4,8 @@ import { PlanoFabrico } from '../models/planofabrico/planofabrico';
 import { Observable } from 'rxjs';
 
 
-const urlHost = 'https://localhost:5001/api/PlanosFabricos';
-const url = 'https://mdpapi.azurewebsites.net/api/PlanosFabricos'
+const url = 'https://localhost:5001/api/PlanosFabricos';
+const urlHost = 'https://mdpapi.azurewebsites.net/api/PlanosFabricos'
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -22,15 +22,15 @@ export class PlanoFabricoService {
 
   
   getAllPlanosFabricos():  Observable<PlanoFabrico[]> {
-    return   this.httpClient.get<PlanoFabrico[]>(url);
+    return   this.httpClient.get<PlanoFabrico[]>(urlHost);
   }
 
   getPlanoFabricoById(id): Observable<PlanoFabrico> {
-    return this.httpClient.get<PlanoFabrico>(url + id);
+    return this.httpClient.get<PlanoFabrico>(urlHost + id);
   }
 
   postPlanoFabrico (pf: PlanoFabrico): Observable<PlanoFabrico> {
-    return this.httpClient.post<PlanoFabrico>(url, JSON.stringify(pf), httpOptions);
+    return this.httpClient.post<PlanoFabrico>(urlHost, JSON.stringify(pf), httpOptions);
   }
 
 }

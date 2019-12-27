@@ -115,9 +115,7 @@ export class MaquinasComponent implements OnInit {
     this.operacoesF.forEach((op, index) => {
       this.operacoesIdArray[index] = op.operacaoId;
     });
-    console.log(this.operacoesIdArray);
     this.operacoesIdArray.forEach((opId, index) => {
-      console.log(opId);
       this.opSupp = new OperacaoTipoMaquina();
       this.tpObject.operacoesTiposMaquinas.push(this.opSupp);
       this.tpObject.operacoesTiposMaquinas[index].operacaoId = opId;
@@ -140,7 +138,6 @@ export class MaquinasComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Jani: ", result);
       this.saveTM(tmId, result);
     });
   }
@@ -154,7 +151,6 @@ export class MaquinasComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Jani: ", result);
       this.saveM(mId, result);
     });
   }
@@ -223,7 +219,6 @@ export class MaquinasComponent implements OnInit {
   }
 
   saveTM(id: number, operacoes: OperacaoTipoMaquina[]) {
-    console.log("JaniZ : ", operacoes);
     this.tipoMaquinaService.getTipoMaquinaById(id).subscribe((tmIdAux) => {
       this.tipomaquinaDoId = tmIdAux;
       this.tipomaquinaDoId.operacoesTiposMaquinas = [];
