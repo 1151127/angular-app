@@ -8,60 +8,6 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('Login Page', () => {
-    page.navigateTo();
-    expect(page.getButtonName("//div[2]/button/span")).toEqual('Registar');
-  });
-
-  it('Start Page', () => {
-    page.navigateTo();
-    page.clickButton("//mat-icon");
-    expect(page.getTitleText()).toEqual('Bem-vindo');
-  });
-
-  it('Users Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[2]/span/mat-icon");
-    expect(page.getButtonName("//mat-form-field/div/div/div")).toEqual('Nome de utilizador *');
-  });
-
-  it('Encomenda Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[3]/span");
-    expect(page.getButtonName("//h2")).toEqual('Gerir Encomendas');
-  });
-
-  it('Store Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[4]/span");
-    expect(page.getButtonName("//h2")).toEqual('Os nossos Produtos');
-  });
-/*
-  it('Linha de produção Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[5]");
-    expect(page.getButtonName("//h2")).toEqual('As minhas Linhas de Produção: ');
-  });
-*/
-  it('Maquina Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[6]/span");
-    expect(page.getButtonName("//h2")).toEqual('As minhas Máquinas:');
-  });
-
-  it('Operações Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[7]/span");
-    expect(page.getButtonName("//h2")).toEqual('As minhas Operações:');
-  });
-
-  it('Maquina Page', () => {
-    page.navigateTo();
-    page.clickButton("//button[8]/span");
-    expect(page.getButtonName("//h2")).toEqual('Os meus Produtos:');
-  });
-
-/*
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('Bem-vindo');
@@ -151,7 +97,7 @@ describe('workspace-project App', () => {
     page.navigateTo();
     expect(page.getLabelName("//button[5]","//div[2]/h2")).toEqual('Os meus Planos de Fabrico:');
   });
-*/
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
