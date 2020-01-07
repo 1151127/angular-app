@@ -26,6 +26,7 @@ import { EncomendaListComponent } from './pages/encomenda-list/encomenda-list.co
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

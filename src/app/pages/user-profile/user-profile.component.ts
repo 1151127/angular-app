@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilizadorService } from 'src/app/services/utilizador.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -11,9 +12,9 @@ export class UserProfileComponent implements OnInit {
 
 
 
-  clientState = 2;
-  adminId = "5dfd0446d596170514b78d16";
-  clientId = "5dfcf390cb1d99001714f7bf";
+  clientState = 0;
+  adminId = '';
+  clientId = '';
   userList: any[] = [];
   myUser: any;
 
@@ -23,10 +24,20 @@ export class UserProfileComponent implements OnInit {
 
   constructor(
     private utilizadorService: UtilizadorService,
+    private authService: AuthService,
   ) { }
 
 
   ngOnInit() {
+    this.authService.state.subscribe(s => {
+      this.clientState = s;
+      console.log(this.clientState);
+    });
+
+    this.authService.id.subscribe(id => {
+      this.clientId = id;
+      console.log(this.clientId);
+    });
     this.getUsers();
   }
 
@@ -66,11 +77,11 @@ export class UserProfileComponent implements OnInit {
     } else {
       var element = this.userList.find(u => u.nome === this.finder);
       console.log(element);
-      if(element != null){
+      if (element != null) {
         this.userList = [];
         this.userList.push(element);
         this.cancelFind = true;
-      } else{
+      } else {
         this.userList = [];
         this.cancelFind = true;
       }
@@ -78,10 +89,10 @@ export class UserProfileComponent implements OnInit {
   }
 
 
-  cancel(){
-      this.cancelFind = false;
-      this. getUsers();
-      
+  cancel() {
+    this.cancelFind = false;
+    this.getUsers();
+
   }
 
 }

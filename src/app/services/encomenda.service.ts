@@ -43,6 +43,6 @@ export class EncomendaService {
   }
 
   putEncomenda (e: Encomenda): Observable<Encomenda> {
-    return  this.httpClient.put<Encomenda>(urlHost, JSON.stringify(e), httpOptions);
+    return  this.httpClient.put<Encomenda>(urlHost + '/' + e._id, JSON.stringify(e), httpOptions);
   }
 }

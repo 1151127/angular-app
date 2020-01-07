@@ -37,6 +37,8 @@ tr:last-child td:last-child
     margin-top: 40px;
     background: rgba(14, 78, 43, 0.632);
     border-radius: 10px;
+    border: solid 5px;
+    border-color: white;
     border-collapse: separate;
      .mat-row:nth-child(odd){
        background-color:rgba(14, 78, 43, 0.632);

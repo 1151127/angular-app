@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EncomendaService } from 'src/app/services/encomenda.service';
 import { Encomenda } from 'src/app/models/encomenda/encomenda';
 import { Pipe, PipeTransform } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'encomenda-list',
@@ -16,7 +17,7 @@ export class EncomendaListComponent implements OnInit {
   displayedColumnsE: string[];
 
 
-  clientState = 2;
+  clientState: number;
   adminId = "5dfd0446d596170514b78d16";
   clientId = "5dfcf390cb1d99001714f7bf";
   finder: string = "";
@@ -27,14 +28,25 @@ export class EncomendaListComponent implements OnInit {
 
   constructor(
     private encomendasService: EncomendaService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
-      this.getEncomendas();
+    this.authService.state.subscribe( s => {
+       this.clientState = s;
+       console.log(this.clientState);
+    });
+
+    this.authService.id.subscribe( id => {
+      this.clientId = id;
+      console.log(this.clientId);
+   });
+   
+    this.getEncomendas();
   }
 
 
-  getEncomendas(){
+  getEncomendas() {
     if (this.clientState === 2) {
 
       this.displayedColumnsE = ['id', 'quantidade', 'dataC', 'dataE', 'preco', 'save'];
@@ -51,6 +63,7 @@ export class EncomendaListComponent implements OnInit {
 
       this.encomendasService.getAllByClient(this.clientId).subscribe(encomendas => {
         this.minhasEncomendas = encomendas;
+
       });
 
     }
@@ -66,7 +79,9 @@ export class EncomendaListComponent implements OnInit {
 
   cancelarEncomenda(encomenda) {
     console.log("encomenda ID:", encomenda._id);
-    this.encomendasService.delEncomenda(encomenda._id).subscribe();
+    this.encomendasService.delEncomenda(encomenda._id).subscribe(e => {
+        this.getEncomendas();
+         });
   }
 
 
@@ -77,11 +92,11 @@ export class EncomendaListComponent implements OnInit {
     } else {
       var element = this.minhasEncomendas.find(e => e._id === this.finder);
       console.log(element);
-      if(element != null){
+      if (element != null) {
         this.minhasEncomendas = [];
         this.minhasEncomendas.push(element);
         this.cancelFind = true;
-      } else{
+      } else {
         this.minhasEncomendas = [];
         this.cancelFind = true;
       }
@@ -89,9 +104,9 @@ export class EncomendaListComponent implements OnInit {
   }
 
 
-  cancel(){
-      this.cancelFind = false;
-      this.getEncomendas();
-      
+  cancel() {
+    this.cancelFind = false;
+    this.getEncomendas();
+
   }
 }

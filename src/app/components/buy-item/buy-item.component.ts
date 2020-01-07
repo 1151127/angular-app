@@ -12,8 +12,7 @@ import {DatePipe} from '@angular/common';
 })
 export class BuyItemComponent implements OnInit {
   
-adminId = "5dfd0446d596170514b78d16";
-clientId = "5dfcf390cb1d99001714f7bf";
+
 
 encomenda = new Encomenda();
 dataEntrega = new Date();
@@ -33,7 +32,7 @@ precoEncomenda = this.encomenda.quantidade * this.data.prod.preco;
     this.encomenda.dataEntregaEncomenda =  this.dataEntrega;
     this.encomenda.estadoBloqueado = false;
     this.encomenda.precoTotal = this.data.prod.preco * this.encomenda.quantidade;
-    this.encomenda.cliente = this.clientId;
+    this.encomenda.cliente = this.data.idClient;
     console.log("Encomenda : ", this.encomenda);
 
     this.encomendaService.postEncomenda( this.encomenda).subscribe((e) => {

@@ -30,3 +30,24 @@
         color: white;
     }
 }
+
+    .logOutButton{
+        border: 0;
+        background: rgba(14, 78, 43, 0.632);
+        height: 50px;
+        width: 50px;
+        margin-right: 20px;
+        mat-icon{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: block;
+            color: white;
+        }
+    }
+
+    .title{
+        color: black;
+        font-size: 40px;
+    }

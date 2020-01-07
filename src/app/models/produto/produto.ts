@@ -6,5 +6,4 @@ export class Produto {
     tipoProduto: string;
     planoFabricoId: number;
     categoria: string;
-    preco: string;
 }
